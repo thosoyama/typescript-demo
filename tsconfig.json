@@ -1,15 +1,25 @@
 {
   "compilerOptions": {
-    "sourceMap": true,
-    "target": "esnext",
-    "module": "es2015",
-    "moduleResolution": "node",
     "allowJs": true,
-    "noEmit": true,
-    "strict": true,
-    "isolatedModules": true,
+    "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "lib": ["dom", "es2015", "es2016", "es2017", "es2018"]
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noEmit": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "strict": true,
+    "target": "esnext"
   },
-  "include": ["src/**/*"]
+  "include": [
+    "src"
+  ]
 }

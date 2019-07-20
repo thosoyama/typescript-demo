@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 import 'regenerator-runtime';
 import { timerAsync, appendLog, sayHello, sayHelloWithError } from './sub';
 
@@ -13,3 +15,13 @@ import { timerAsync, appendLog, sayHello, sayHelloWithError } from './sub';
   await timerAsync(1000);
   appendLog(await sayHelloWithError().catch((): string => errorText));
 })();
+
+class TestClass {
+  private privateProperty = 'private';
+  public publicProperty = 'public';
+}
+
+const test = new TestClass();
+
+console.log(test.publicProperty);
+// console.log(test.privateProperty);
