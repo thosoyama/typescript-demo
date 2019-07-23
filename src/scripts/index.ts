@@ -3,10 +3,8 @@
 import 'regenerator-runtime';
 import { timerAsync, appendLog, sayHello, sayHelloWithError } from './sub';
 
-/**
- * main
- */
-(async function main(): Promise<void> {
+// async/await
+(async function(): Promise<void> {
   const errorText = 'NG';
 
   await timerAsync(1000);
@@ -16,12 +14,32 @@ import { timerAsync, appendLog, sayHello, sayHelloWithError } from './sub';
   appendLog(await sayHelloWithError().catch((): string => errorText));
 })();
 
-class TestClass {
-  private privateProperty = 'private';
-  public publicProperty = 'public';
+// class
+{
+  class TestClass {
+    private privateProperty = 'private';
+    public publicProperty = 'public';
+  }
+
+  const test = new TestClass();
+
+  console.log(test.publicProperty);
+  // console.log(test.privateProperty);
 }
 
-const test = new TestClass();
+// interface
+{
+  interface HogeInterface {
+    foo: string;
+    bar: number;
+    baz?: boolean;
+  }
 
-console.log(test.publicProperty);
-// console.log(test.privateProperty);
+  const hoge: HogeInterface = {
+    foo: 'string',
+    bar: 100,
+    // baz: true,
+  };
+
+  console.log(hoge);
+}

@@ -27,6 +27,12 @@ module.exports = {
             },
           },
           {
+            loader: 'ts-loader',
+            options: {
+              transpileOnly: true,
+            },
+          },
+          {
             loader: 'eslint-loader',
           },
         ],

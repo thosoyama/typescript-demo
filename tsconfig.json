@@ -13,9 +13,9 @@
     "module": "esnext",
     "moduleResolution": "node",
     "noEmit": true,
+    "resolveJsonModule": true,
     "skipLibCheck": true,
     "sourceMap": true,
-    "resolveJsonModule": true,
     "strict": true,
     "target": "esnext"
   },

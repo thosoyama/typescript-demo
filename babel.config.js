@@ -5,7 +5,6 @@ module.exports = function(api) {
     [
       '@babel/preset-env',
       {
-        loose: true,
         modules: false,
         targets: {
           chrome: 51,
@@ -16,13 +15,9 @@ module.exports = function(api) {
         corejs: 3,
       },
     ],
-    '@babel/preset-typescript',
   ];
-
-  const plugins = ['@babel/plugin-proposal-class-properties'];
 
   return {
     presets,
-    plugins,
   };
 };
