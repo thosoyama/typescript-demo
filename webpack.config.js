@@ -1,18 +1,18 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const path = require('path');
-const webpack = require('webpack');
-const TerserPlugin = require('terser-webpack-plugin');
+const path = require('path')
+const webpack = require('webpack')
+const TerserPlugin = require('terser-webpack-plugin')
 
 module.exports = {
   entry: {
-    index: './src/assets/scripts/index.ts',
+    index: './src/assets/scripts/index.ts'
   },
   output: {
     path: path.resolve(__dirname, 'dist/assets/js'),
-    filename: '[name].js',
+    filename: '[name].js'
   },
   resolve: {
-    extensions: ['.ts'],
+    extensions: ['.ts']
   },
   module: {
     rules: [
@@ -23,28 +23,28 @@ module.exports = {
           {
             loader: 'babel-loader',
             options: {
-              presets: ['@babel/preset-env'],
-            },
+              presets: ['@babel/preset-env']
+            }
           },
           {
             loader: 'ts-loader',
             options: {
-              transpileOnly: true,
-            },
+              transpileOnly: true
+            }
           },
           {
-            loader: 'eslint-loader',
-          },
-        ],
-      },
-    ],
+            loader: 'eslint-loader'
+          }
+        ]
+      }
+    ]
   },
   plugins: [new webpack.optimize.AggressiveMergingPlugin()],
   optimization: {
     minimizer: [
       new TerserPlugin({
-        extractComments: /^\**!|copyright|preserve|license|@cc_on/i,
-      }),
-    ],
-  },
-};
+        extractComments: /^\**!|copyright|preserve|license|@cc_on/i
+      })
+    ]
+  }
+}

@@ -1,5 +1,5 @@
 module.exports = function(api) {
-  api.cache(false);
+  api.cache(false)
 
   const presets = [
     [
@@ -9,15 +9,15 @@ module.exports = function(api) {
         targets: {
           chrome: 51,
           ios: 10,
-          android: 5,
+          android: 5
         },
         useBuiltIns: 'usage',
-        corejs: 3,
-      },
-    ],
-  ];
+        corejs: 3
+      }
+    ]
+  ]
 
   return {
-    presets,
-  };
-};
+    presets
+  }
+}

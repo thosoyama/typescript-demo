@@ -3,13 +3,13 @@
   "private": true,
   "scripts": {
     "start": "npm-run-all -l -s clean -p server watch",
-    "build": "npm-run-all -l -p tsc lint -s clean -p static webpack",
+    "build": "npm-run-all -l -p type-check lint -s clean -p static webpack",
     "watch": "npm-run-all -l -s clean -p static webpackw staticw",
     "server": "cd dist && npx http-server -o",
     "clean": "rm -rf dist/* && mkdir -p dist/assets && cd dist/assets && mkdir js css img",
     "static": "cp -r src/pages/* dist/ & cp -r src/assets/styles/* dist/assets/css/ & cp -r src/assets/images/* dist/assets/img/",
     "staticw": "ts-node src/scripts/watcher.ts",
-    "tsc": "tsc --noEmit",
+    "type-check": "tsc --noEmit",
     "lint": "eslint --fix --ext .ts src",
     "webpack": "webpack --mode production",
     "webpackw": "webpack --mode development --devtool source-map -w"

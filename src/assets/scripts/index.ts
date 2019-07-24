@@ -1,45 +1,49 @@
 /* eslint-disable no-console */
 
-import 'regenerator-runtime';
-import { timerAsync, appendLog, sayHello, sayHelloWithError } from './sub';
+import 'regenerator-runtime'
+import { timerAsync, appendLog, sayHello, sayHelloWithError } from './sub'
 
 // async/await
-(async function(): Promise<void> {
-  const errorText = 'NG';
+{
+  async function main(): Promise<void> {
+    const errorText = 'NG'
 
-  await timerAsync(1000);
-  appendLog(await sayHello().catch((): string => errorText));
+    await timerAsync(1000)
+    appendLog(await sayHello().catch((): string => errorText))
 
-  await timerAsync(1000);
-  appendLog(await sayHelloWithError().catch((): string => errorText));
-})();
+    await timerAsync(1000)
+    appendLog(await sayHelloWithError().catch((): string => errorText))
+  }
+
+  main()
+}
 
 // class
 {
   class TestClass {
-    private privateProperty = 'private';
-    public publicProperty = 'public';
+    private privateProperty = 'private'
+    public publicProperty = 'public'
   }
 
-  const test = new TestClass();
+  const test = new TestClass()
 
-  console.log(test.publicProperty);
-  // console.log(test.privateProperty);
+  console.log(test.publicProperty)
+  // console.log(test.privateProperty)
 }
 
 // interface
 {
   interface HogeInterface {
-    foo: string;
-    bar: number;
-    baz?: boolean;
+    foo: string
+    bar: number
+    baz?: boolean
   }
 
   const hoge: HogeInterface = {
     foo: 'string',
-    bar: 100,
+    bar: 100
     // baz: true,
-  };
+  }
 
-  console.log(hoge);
+  console.log(hoge)
 }
