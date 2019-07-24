@@ -5,10 +5,10 @@ const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
   entry: {
-    index: './src/scripts/index.ts',
+    index: './src/assets/scripts/index.ts',
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist/assets/js'),
     filename: '[name].js',
   },
   resolve: {
