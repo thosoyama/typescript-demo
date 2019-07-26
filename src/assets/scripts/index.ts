@@ -2,6 +2,7 @@
 
 import 'regenerator-runtime'
 import { timerAsync, appendLog, sayHello, sayHelloWithError } from './sub'
+import window from '../../@types/window'
 
 // async/await
 {
@@ -46,4 +47,9 @@ import { timerAsync, appendLog, sayHello, sayHelloWithError } from './sub'
   }
 
   console.log(hoge)
+}
+
+// config
+{
+  console.log('config', window.config)
 }

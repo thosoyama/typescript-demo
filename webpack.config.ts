@@ -1,14 +1,13 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-const path = require('path')
-const webpack = require('webpack')
-const TerserPlugin = require('terser-webpack-plugin')
+import * as path from 'path'
+import * as webpack from 'webpack'
+import * as TerserPlugin from 'terser-webpack-plugin'
 
 module.exports = {
   entry: {
-    index: './src/assets/scripts/index.ts'
+    index: path.resolve(__dirname, 'src/assets/scripts/index.ts')
   },
   output: {
-    path: path.resolve(__dirname, 'dist/assets/js'),
+    path: path.resolve(__dirname, 'dist/assets/scripts'),
     filename: '[name].js'
   },
   resolve: {

@@ -1,0 +1,11 @@
+#!/bin/sh
+
+cd `dirname $0`
+
+export TS_NODE_PROJECT=tsconfig.node.json
+
+if [ -z "$NODE_ENV" ]; then
+  export NODE_ENV=production
+fi
+
+eval "$*"
