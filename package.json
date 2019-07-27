@@ -11,7 +11,7 @@
     "build:styles": "cp -r src/assets/styles/* dist/assets/styles/",
     "watch:scripts": "./ts-run webpack --mode development --devtool source-map -w",
     "watch:static": "./ts-run ts-node src/scripts/watch.ts",
-    "server": "cd dist && npx http-server -o",
+    "server": "npx http-server dist -o",
     "clean": "rm -rf dist/* && mkdir -p dist/assets && cd dist/assets && mkdir scripts styles images",
     "typecheck": "tsc --noEmit",
     "lint": "eslint --fix --ext .ts src"
