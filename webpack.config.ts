@@ -2,6 +2,8 @@ import * as path from 'path'
 import * as webpack from 'webpack'
 import * as TerserPlugin from 'terser-webpack-plugin'
 import * as HardSourceWebpackPlugin from 'hard-source-webpack-plugin'
+import * as ForkTSCchekerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
+
 import { config } from './src/config'
 
 module.exports = {
@@ -41,6 +43,7 @@ module.exports = {
     ]
   },
   plugins: [
+    new ForkTSCchekerWebpackPlugin(),
     new HardSourceWebpackPlugin(),
     new webpack.optimize.AggressiveMergingPlugin(),
     new webpack.DefinePlugin({
