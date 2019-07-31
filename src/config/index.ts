@@ -10,3 +10,7 @@ const enviromentsMap: EnvironmentsMap = {
 const nodeEnv: string = process.env.NODE_ENV
 
 export const config: Config = enviromentsMap[nodeEnv]
+
+if (!config) {
+  throw Error(`Invalid NODE_ENV: ${nodeEnv}`)
+}

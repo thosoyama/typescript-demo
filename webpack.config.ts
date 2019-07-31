@@ -1,6 +1,7 @@
 import * as path from 'path'
 import * as webpack from 'webpack'
 import * as TerserPlugin from 'terser-webpack-plugin'
+import { config } from './src/config'
 
 module.exports = {
   entry: {
@@ -38,7 +39,13 @@ module.exports = {
       }
     ]
   },
-  plugins: [new webpack.optimize.AggressiveMergingPlugin()],
+  plugins: [
+    new webpack.optimize.AggressiveMergingPlugin(),
+    new webpack.DefinePlugin({
+      'process.env.config': JSON.stringify(config),
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+    })
+  ],
   optimization: {
     minimizer: [
       new TerserPlugin({

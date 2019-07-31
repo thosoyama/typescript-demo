@@ -2,7 +2,6 @@
 
 import 'regenerator-runtime'
 import { timerAsync, appendLog, sayHello, sayHelloWithError } from './sub'
-import window from '../../@types/window'
 
 // async/await
 {
@@ -51,5 +50,6 @@ import window from '../../@types/window'
 
 // config
 {
-  console.log('config', window.config)
+  console.log('process.env.NODE_ENV:', process.env.NODE_ENV)
+  console.log('process.env.config:', process.env.config)
 }

@@ -2,7 +2,7 @@
   "name": "typescript-demo",
   "private": true,
   "scripts": {
-    "start": "npm-run-all -l -s clean:* build:* -p server watch",
+    "start": "npm-run-all -l -s clean:* -p watch & sleep 10; run-s -l server",
     "build": "npm-run-all -l -p typecheck lint -s clean -p build:*",
     "watch": "npm-run-all -l -s clean -p watch:*",
     "clean": "npm-run-all -l -s clean:*",
@@ -40,6 +40,7 @@
     "eslint-loader": "^2.2.1",
     "eslint-plugin-prettier": "^3.1.0",
     "glob": "^7.1.4",
+    "http-server": "^0.11.1",
     "npm-run-all": "^4.1.5",
     "nunjucks": "^3.2.0",
     "prettier": "^1.18.2",

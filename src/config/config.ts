@@ -1,4 +1,5 @@
 export interface Config {
+  env: 'production' | 'development'
   baseUrl: string
 }
 

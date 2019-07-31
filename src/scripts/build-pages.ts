@@ -6,6 +6,6 @@ nunjucks.configure(['src/pages'], {
   autoescape: false
 })
 
-const html = nunjucks.render('index.html', { config: JSON.stringify(config) })
+const html = nunjucks.render('index.html', { config })
 
 fs.writeFileSync('dist/index.html', html)
