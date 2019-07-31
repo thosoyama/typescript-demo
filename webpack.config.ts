@@ -1,6 +1,7 @@
 import * as path from 'path'
 import * as webpack from 'webpack'
 import * as TerserPlugin from 'terser-webpack-plugin'
+import * as HardSourceWebpackPlugin from 'hard-source-webpack-plugin'
 import { config } from './src/config'
 
 module.exports = {
@@ -21,7 +22,7 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           {
-            loader: 'babel-loader',
+            loader: 'babel-loader?cacheDirectory',
             options: {
               presets: ['@babel/preset-env']
             }
@@ -40,6 +41,7 @@ module.exports = {
     ]
   },
   plugins: [
+    new HardSourceWebpackPlugin(),
     new webpack.optimize.AggressiveMergingPlugin(),
     new webpack.DefinePlugin({
       'process.env.config': JSON.stringify(config),
