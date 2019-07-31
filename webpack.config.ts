@@ -1,12 +1,13 @@
 import * as path from 'path'
 import * as webpack from 'webpack'
 import * as TerserPlugin from 'terser-webpack-plugin'
-import * as HardSourceWebpackPlugin from 'hard-source-webpack-plugin'
 import * as ForkTSCchekerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
-
 import { config } from './src/config'
 
+const nodeEnv: string = process.env.NODE_ENV
+
 module.exports = {
+  mode: !nodeEnv || nodeEnv === 'production' ? 'production' : 'development',
   entry: {
     index: path.resolve(__dirname, 'src/assets/scripts/index.ts')
   },
@@ -44,7 +45,6 @@ module.exports = {
   },
   plugins: [
     new ForkTSCchekerWebpackPlugin(),
-    new HardSourceWebpackPlugin(),
     new webpack.optimize.AggressiveMergingPlugin(),
     new webpack.DefinePlugin({
       'process.env.config': JSON.stringify(config),
