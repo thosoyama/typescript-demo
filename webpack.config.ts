@@ -13,10 +13,11 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'dist/assets/scripts'),
+    publicPath: '/assets/scripts/',
     filename: '[name].js'
   },
   resolve: {
-    extensions: ['.ts']
+    extensions: ['.ts', '.js']
   },
   module: {
     rules: [

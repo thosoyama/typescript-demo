@@ -2,7 +2,7 @@
   "name": "typescript-demo",
   "private": true,
   "scripts": {
-    "start": "npm-run-all -l -s clean:* -p watch & sleep 10; run-s -l server",
+    "start": "npm-run-all -l -s clean:* -p watch & run-s -l server",
     "build": "npm-run-all -l -s clean -p build:*",
     "watch": "npm-run-all -l -s clean -p watch:*",
     "clean": "npm-run-all -l -s clean:*",
@@ -14,7 +14,7 @@
     "watch:static": "./ts-run ts-node src/scripts/watch.ts",
     "clean:rm": "rm -rf dist/*",
     "clean:mkdir": "mkdir -p dist/assets && cd dist/assets && mkdir scripts styles images",
-    "server": "npx http-server dist -o",
+    "server": "./ts-run webpack-dev-server --inline --watch-content-base --content-base dist",
     "typecheck": "tsc --noEmit",
     "lint": "eslint --fix --ext .ts src"
   },
@@ -42,7 +42,6 @@
     "eslint-plugin-prettier": "^3.1.0",
     "fork-ts-checker-webpack-plugin": "^1.4.3",
     "glob": "^7.1.4",
-    "http-server": "^0.11.1",
     "npm-run-all": "^4.1.5",
     "nunjucks": "^3.2.0",
     "prettier": "^1.18.2",
@@ -52,6 +51,7 @@
     "tsconfig-paths": "^3.8.0",
     "typescript": "^3.5.3",
     "webpack": "^4.36.1",
-    "webpack-cli": "^3.3.6"
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-server": "^3.7.2"
   }
 }
