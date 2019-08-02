@@ -2,7 +2,7 @@
   "name": "typescript-demo",
   "private": true,
   "scripts": {
-    "start": "npm-run-all -l -s clean:* -p watch & run-s -l server",
+    "start": "run-s -l clean:* watch:static & run-s -l server",
     "build": "npm-run-all -l -s clean -p build:*",
     "watch": "npm-run-all -l -s clean -p watch:*",
     "clean": "npm-run-all -l -s clean:*",
