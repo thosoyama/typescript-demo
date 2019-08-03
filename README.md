@@ -1,6 +1,20 @@
 # typescript-demo
 
-# vscode
+## build
+
+production build.
+
+```sh
+yarn prod build
+```
+
+dev server.
+
+```sh
+yarn dev start
+```
+
+## vscode
 
 - editorconfig.editorconfig
 - shinnn.stylelint

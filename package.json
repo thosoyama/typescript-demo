@@ -2,7 +2,9 @@
   "name": "typescript-demo",
   "private": true,
   "scripts": {
-    "start": "NODE_ENV=development run-s -l clean:* watch:static & run-s -l watch:styles & run-s -l server",
+    "dev": "NODE_ENV=development run-s",
+    "prod": "NODE_ENV=production run-s",
+    "start": "run-s -l clean:* watch:static & run-s -l watch:styles & run-s -l server",
     "build": "npm-run-all -l -s clean -p build:*",
     "watch": "npm-run-all -l -s clean -p watch:*",
     "clean": "npm-run-all -l -s clean:*",
