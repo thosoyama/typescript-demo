@@ -5,10 +5,7 @@ module.exports = ctx => {
     map: prod ? false : {},
     base: 'src/assets/styles',
     plugins: {
-      stylelint: {
-        extends: 'stylelint-config-standard',
-        rules: {}
-      },
+      stylelint: require('./.stylelintrc.js'),
       precss: {},
       autoprefixer: {},
       csswring: prod ? {} : false

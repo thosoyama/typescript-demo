@@ -10,6 +10,10 @@ body {
   margin: 0;
   color: $base-color;
 
+  &.-test {
+    background-color: $base-color;
+  }
+
   div {
     font-weight: bold;
   }
@@ -17,4 +21,12 @@ body {
 
 span {
   border: 1px solid #fff;
+}
+
+.parent {
+  margin: 5px;
+}
+
+.child {
+  @extend .parent;
 }
