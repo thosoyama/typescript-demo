@@ -1,5 +1,5 @@
 {
-  "editor.formatOnSave": true,
+  "editor.formatOnSave": false,
   "eslint.autoFixOnSave": true,
   "eslint.validate": [
     "javascript",
@@ -9,7 +9,7 @@
     "*.css": "postcss"
   },
   "prettier.stylelintIntegration": true,
-  "[javascript]": {
-    "editor.formatOnSave": false
+  "[postcss]": {
+    "editor.formatOnSave": true
   }
 }
