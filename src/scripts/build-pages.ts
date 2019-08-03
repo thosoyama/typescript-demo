@@ -22,7 +22,7 @@ function mkdirpSync(dir: string): void {
 }
 
 function render(src: string, dst: string): void {
-  fs.writeFile(dst, nunjucks.render(src, { config }), (err): void => {
+  fs.writeFile(dst, nunjucks.render(src, config), (err): void => {
     if (err) throw err
     console.log(`saved ${src}`)
   })
