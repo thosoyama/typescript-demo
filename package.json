@@ -16,7 +16,7 @@
     "clean:rm": "rm -rf dist/*",
     "clean:mkdir": "mkdir -p dist/assets && cd dist/assets && mkdir scripts styles images",
     "server": "./ts-run webpack-dev-server --inline --watch-content-base --content-base dist",
-    "typecheck": "tsc --noEmit",
+    "scripts:type": "tsc --noEmit",
     "scripts:lint": "eslint --fix --ext ts src",
     "styles:lint": "stylelint --fix src/**/*.css"
   },
