@@ -1,6 +1,5 @@
 /* eslint-disable no-console */
 
-import 'regenerator-runtime'
 import { timerAsync, appendLog, sayHello, sayHelloWithError } from './sub'
 
 // async/await

@@ -1,23 +1,16 @@
 module.exports = function(api) {
-  api.cache(false)
+  api.cache(true)
 
-  const presets = [
+  const plugins = [
     [
-      '@babel/preset-env',
+      '@babel/plugin-transform-runtime',
       {
-        modules: false,
-        targets: {
-          chrome: 51,
-          ios: 10,
-          android: 5
-        },
-        useBuiltIns: 'usage',
-        corejs: 3
+        corejs: { version: 3, proposals: true }
       }
     ]
   ]
 
   return {
-    presets
+    plugins
   }
 }
