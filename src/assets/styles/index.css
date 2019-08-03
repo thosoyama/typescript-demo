@@ -1,6 +1,20 @@
 @charset "utf-8";
 
+@import '_common';
+
+$base-color: #333;
+
 body {
-  margin: 0;
+  display: flex;
   padding: 10px;
+  margin: 0;
+  color: $base-color;
+
+  div {
+    font-weight: bold;
+  }
+}
+
+span {
+  border: 1px solid #fff;
 }
