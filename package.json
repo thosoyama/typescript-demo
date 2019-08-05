@@ -4,16 +4,16 @@
   "scripts": {
     "dev": "NODE_ENV=development run-s",
     "prod": "NODE_ENV=production run-s",
-    "start": "run-s -l clean:* watch:static & run-s -l watch:styles & run-s -l server",
+    "start": "run-s -l clean:* sass watch:static & run-s -l watch:styles & run-s -l server",
     "build": "npm-run-all -l -s clean -p build:*",
     "watch": "npm-run-all -l -s clean -p watch:*",
     "clean": "npm-run-all -l -s clean:*",
     "build:pages": "./ts-run ts-node ./src/scripts/build-pages.ts",
     "build:images": "cp -r src/assets/images/* dist/assets/images/",
     "build:scripts": "./ts-run webpack",
-    "build:styles": "postcss src/assets/styles/**/[^_]* --dir dist/assets/styles",
+    "build:styles": "run-s -l sass",
     "watch:scripts": "./ts-run webpack -w --devtool source-map",
-    "watch:styles": "postcss src/assets/styles/**/[^_]* --dir dist/assets/styles -w",
+    "watch:styles": "run-s -l sass-watch",
     "watch:static": "./ts-run ts-node src/scripts/watch.ts",
     "clean:rm": "rm -rf dist/*",
     "clean:mkdir": "mkdir -p dist/assets && cd dist/assets && mkdir scripts styles images",
@@ -21,7 +21,10 @@
     "inline": "./ts-run ts-node src/scripts/inline.ts",
     "scripts:type": "tsc --noEmit",
     "scripts:lint": "eslint --fix --ext ts src",
-    "styles:lint": "stylelint --fix src/**/*.css"
+    "styles:lint": "stylelint --fix src/**/*.css",
+    "sass": "node-sass src/assets/styles/*.scss --importer node_modules/node-sass-globbing -r -o dist/assets/styles",
+    "sass-watch": "node-sass src/assets/styles/*.scss --importer node_modules/node-sass-globbing -r -w --source-map-embed -o dist/assets/styles",
+    "postsass": "postcss -r dist/assets/styles/**/[^_]*"
   },
   "dependencies": {
     "@babel/runtime-corejs3": "^7.5.5"
@@ -50,16 +53,17 @@
     "fork-ts-checker-webpack-plugin": "^1.4.3",
     "glob": "^7.1.4",
     "inline-source": "^7.0.0",
+    "node-sass": "^4.12.0",
+    "node-sass-globbing": "^0.0.23",
     "npm-run-all": "^4.1.5",
     "nunjucks": "^3.2.0",
     "postcss": "^7.0.17",
     "postcss-cli": "^6.1.3",
-    "precss": "^4.0.0",
     "prettier": "^1.18.2",
     "prettier-stylelint": "^0.4.2",
     "stylelint": "^10.1.0",
-    "stylelint-config-recess-order": "^2.0.3",
-    "stylelint-config-standard": "^18.3.0",
+    "stylelint-config-property-sort-order-smacss": "^5.0.0",
+    "stylelint-config-standard-scss": "^1.1.0",
     "stylelint-order": "^3.0.1",
     "stylelint-scss": "^3.9.3",
     "terser-webpack-plugin": "^1.3.0",
@@ -69,7 +73,8 @@
     "typescript": "^3.5.3",
     "webpack": "^4.36.1",
     "webpack-cli": "^3.3.6",
-    "webpack-dev-server": "^3.7.2"
+    "webpack-dev-server": "^3.7.2",
+    "yarn": "^1.17.3"
   },
   "browserslist": [
     "Chrome >= 42",

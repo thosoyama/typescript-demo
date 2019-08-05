@@ -1,14 +1,14 @@
 @charset "utf-8";
 
-@import '_common';
-
-$base-color: #333;
+@import "common/**";
 
 body {
   display: flex;
-  padding: 10px;
   margin: 0;
+  padding: 10px;
   color: $base-color;
+
+  @include font-size(14);
 
   &.-test {
     background-color: $base-color;

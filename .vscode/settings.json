@@ -9,7 +9,7 @@
     "*.css": "postcss"
   },
   "prettier.stylelintIntegration": true,
-  "[postcss]": {
+  "[scss]": {
     "editor.formatOnSave": true
   }
 }

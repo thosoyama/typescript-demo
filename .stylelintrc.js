@@ -1,16 +1,14 @@
 module.exports = {
-  plugins: ['stylelint-order', 'stylelint-scss'],
+  plugins: ['stylelint-order'],
   extends: [
     'prettier-stylelint/config',
-    'stylelint-config-standard',
-    'stylelint-config-recess-order'
+    'stylelint-config-standard-scss',
+    'stylelint-config-property-sort-order-smacss',
   ],
   ignoreFiles: [
     'dist/**',
     '**/node_modules/**',
   ],
   rules: {
-    'at-rule-no-unknown': null,
-    'scss/at-rule-no-unknown': null,
   },
 };

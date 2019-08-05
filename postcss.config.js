@@ -6,7 +6,6 @@ module.exports = ctx => {
     base: 'src/assets/styles',
     plugins: {
       stylelint: require('./.stylelintrc.js'),
-      precss: {},
       autoprefixer: {},
       csswring: prod ? {} : false
     }
