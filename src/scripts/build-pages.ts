@@ -5,6 +5,7 @@ import * as fs from 'fs'
 import * as glob from 'glob'
 import * as path from 'path'
 import { config } from '../config'
+import { assets } from './utils'
 
 const templates: string[] = ['*.html']
 
@@ -22,7 +23,7 @@ function mkdirpSync(dir: string): void {
 }
 
 function render(src: string, dst: string): void {
-  fs.writeFile(dst, nunjucks.render(src, config), (err): void => {
+  fs.writeFile(dst, nunjucks.render(src, { ...config, assets }), (err): void => {
     if (err) throw err
     console.log(`saved ${src}`)
   })
